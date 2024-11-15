@@ -1,3 +1,4 @@
+# Databricks notebook source
 from flask import Flask,jsonify, render_template, flash, redirect, url_for, Markup, request
 from flask_cors import CORS
 from dotenv import load_dotenv
@@ -207,6 +208,7 @@ def load_model():
         llm = GPT4All(model=model_path, n_ctx=model_n_ctx, backend='gptj', callbacks=callbacks, verbose=False)
 
 if __name__ == "__main__":
+  app.run(port=5001)
   load_model()
   print("LLM0", llm)
   app.run(host="0.0.0.0", debug = False)
